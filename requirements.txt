@@ -1,0 +1,9 @@
+matplotlib
+h5py
+notebook
+scipy
+tensorflow
+tensorflow_addons
+tfkbnufft
+xmltodict
+ismrmrd
