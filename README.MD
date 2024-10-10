@@ -99,8 +99,13 @@ This task is to transform  `ISMRMRD (ISMRM Raw Data)` to `FastMRI` with steps:
 
 1. read h5 file 
 2. get k space and RSS
+
+![](docs/ismrmrd_unet.png)
+
 3. put `kspace`, `RSS`, `xml_header` into h5 file
 
+
+---
 
 By studying ISMRMRD [architecture](https://ismrmrd.readthedocs.io/en/latest/mrd_header.html), 
 - `Acquisition` storing the complex64 data - `kspace`
