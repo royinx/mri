@@ -1,6 +1,10 @@
 # MRI Task
+<detail>
+<summary>
 
 ## 0. Environment setting
+</summary>
+
 ```bash
 # pull image
 docker run --runtime nvidia --rm -it royinx/mri
@@ -9,9 +13,13 @@ docker run --runtime nvidia --rm -it royinx/mri
 docker build -t mri .
 docker run --runtime nvidia --rm -it mri
 ```
+</detail>
+
+<detail>
+<summary>
 
 ## 1. MRI EDA
-
+</summary>
 
 FastMRI format data have three columns:
 
@@ -41,7 +49,14 @@ eNx       | x - axis        | 640
 
 ---
 
+</detail>
+
+<detail>
+<summary>
+
 ## 2. Image Enhancement 
+</summary>
+
 >One way to speed up the MRI, is to undersample the k-space. Less data acquisition
 means faster scans. However undersampling influences the quality of the reconstructed
 images. 
@@ -54,10 +69,15 @@ undersampled scan:  [Code](mri.ipynb)
 
 ![](docs/fastmri_unet.png)
 
-
-
 ---
+</detail>
+
+<detail>
+<summary>
+
 ## 3. Metrics 
+</summary>
+
 Several benchmarks are adopted to measure the quality of the images reconstructed. 
 
 Metrics | Measure | value
@@ -67,8 +87,13 @@ PSNR<br/>(Peak Signal to Noise Ratio) | Peak Signal and Noise similartity | High
 NMSE<br/>(Normalized Mean Squared Error) | Mean squared error | Lower Error - Higher Similarity
 
 ---
+</detail>
+
+<detail>
+<summary>
 
 ## 4. Deployment
+</summary>
 
 The model is wrapped into docker, just simply run the following code in repo root dir:
 
@@ -78,8 +103,14 @@ docker run --runtime nvidia --rm -it mri
 ```
 
 ---
+</detail>
+
+<detail>
+<summary>
 
 ## 5. Format Transformation
+</summary>
+
 
 Detail code in `src/read_ismrmrd.py`, it will transform `ISMRMRD h5 file` to `FastMRI` format if run directly
 
@@ -103,7 +134,8 @@ By studying ISMRMRD [architecture](https://ismrmrd.readthedocs.io/en/latest/mrd_
 
 
 ![2 step kspace encoding](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4967038/bin/nihms744728f3.jpg)
-<!-- reference collapse  -->
+---
+</detail>
 
 <details>
 <summary>
@@ -120,6 +152,6 @@ Links:
 
 Concept:
 
-![sampleing method](https://www.researchgate.net/publication/373789926/figure/fig2/AS:11431281194824781@1696238423002/Visual-overview-of-Cartesian-and-Non-Cartesian-k-space-sampling-trajectories-Left.tif)
+![sampleing method](docs/sampling_method)
 
 </details>
