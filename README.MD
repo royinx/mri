@@ -1,10 +1,14 @@
 # MRI Task
-<detail>
-<summary>
 
-## 0. Environment setting
-</summary>
+# Table of Contents
+0. [Environment setting](#p0)
+1. [MRI EDA](#p1)
+2. [Image Enhancement](#p2)
+3. [Metrics](#p3)
+4. [Deployment](#p4)
+5. [Format Transformation](#p5)
 
+## 0. Environment setting <a name="p0"></a>
 ```bash
 # pull image
 docker run --runtime nvidia --rm -it royinx/mri
@@ -13,13 +17,9 @@ docker run --runtime nvidia --rm -it royinx/mri
 docker build -t mri .
 docker run --runtime nvidia --rm -it mri
 ```
-</detail>
 
-<detail>
-<summary>
+## 1. MRI EDA <a name="p1"></a>
 
-## 1. MRI EDA
-</summary>
 
 FastMRI format data have three columns:
 
@@ -49,14 +49,7 @@ eNx       | x - axis        | 640
 
 ---
 
-</detail>
-
-<detail>
-<summary>
-
-## 2. Image Enhancement 
-</summary>
-
+## 2. Image Enhancement <a name="p2"></a>
 >One way to speed up the MRI, is to undersample the k-space. Less data acquisition
 means faster scans. However undersampling influences the quality of the reconstructed
 images. 
@@ -69,15 +62,10 @@ undersampled scan:  [Code](mri.ipynb)
 
 ![](docs/fastmri_unet.png)
 
+
+
 ---
-</detail>
-
-<detail>
-<summary>
-
-## 3. Metrics 
-</summary>
-
+## 3. Metrics <a name="p3"></a>
 Several benchmarks are adopted to measure the quality of the images reconstructed. 
 
 Metrics | Measure | value
@@ -87,13 +75,8 @@ PSNR<br/>(Peak Signal to Noise Ratio) | Peak Signal and Noise similartity | High
 NMSE<br/>(Normalized Mean Squared Error) | Mean squared error | Lower Error - Higher Similarity
 
 ---
-</detail>
 
-<detail>
-<summary>
-
-## 4. Deployment
-</summary>
+## 4. Deployment <a name="p4"></a>
 
 The model is wrapped into docker, just simply run the following code in repo root dir:
 
@@ -103,14 +86,8 @@ docker run --runtime nvidia --rm -it mri
 ```
 
 ---
-</detail>
 
-<detail>
-<summary>
-
-## 5. Format Transformation
-</summary>
-
+## 5. Format Transformation <a name="p5"></a>
 
 Detail code in `src/read_ismrmrd.py`, it will transform `ISMRMRD h5 file` to `FastMRI` format if run directly
 
@@ -135,7 +112,6 @@ By studying ISMRMRD [architecture](https://ismrmrd.readthedocs.io/en/latest/mrd_
 
 ![2 step kspace encoding](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4967038/bin/nihms744728f3.jpg)
 ---
-</detail>
 
 <details>
 <summary>
